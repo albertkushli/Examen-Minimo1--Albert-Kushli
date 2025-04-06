@@ -1,25 +1,24 @@
 package edu.upc.dsa.models;
 
+import java.util.UUID;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
-import java.util.UUID;
+import edu.upc.dsa.util.RandomUtils;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Maleta {
+public class MaletaDTO {
+    private String id;
     private String usuarioId;
     private String vueloId;
-    private String id;
 
+    public MaletaDTO() {}
 
-    public Maleta() {}
-
-
-    public Maleta(String usuarioId, String vueloId) {
+    public MaletaDTO(String id, String usuarioId, String vueloId) {
         this();
         this.usuarioId = usuarioId;
         this.vueloId = vueloId;
-        generateId();
+
 
     }
 
@@ -29,9 +28,15 @@ public class Maleta {
         }
     }
 
+    // Getters y Setters
     public String getId() {
         return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getUsuarioId() {
         return usuarioId;
     }

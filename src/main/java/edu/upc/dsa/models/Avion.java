@@ -1,9 +1,13 @@
 package edu.upc.dsa.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Avion {
     private String id;
     private String modelo;
     private String companyia;
+    private List<Vuelo> vuelos;
 
     public Avion() {}
 
@@ -11,6 +15,16 @@ public class Avion {
         this.id = id;
         this.modelo = modelo;
         this.companyia = companyia;
+        this.vuelos = new ArrayList<>();
+    }
+
+    public void addVuelo(Vuelo vuelo) {
+        vuelos.removeIf(v -> v.getId().equals(vuelo.getId()));
+        vuelos.add(vuelo);
+    }
+
+    public List<Vuelo> getVuelos() {
+        return vuelos;
     }
 
     public String getId() {
