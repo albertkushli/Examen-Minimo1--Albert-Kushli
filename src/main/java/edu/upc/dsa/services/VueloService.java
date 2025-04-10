@@ -55,7 +55,6 @@ public class VueloService {
 
 
         try {
-            // Se valida que el avión existe
             avionManager.addVuelo(vuelo.getId(), vuelo.getHoraSalida(), vuelo.getHoraLlegada(), vuelo.getAvionId(), vuelo.getOrigen(), vuelo.getDestino());
             return Response.status(201).entity(vuelo).build();
         } catch (Exception e) {
@@ -78,6 +77,8 @@ public class VueloService {
         }
         return Response.status(200).entity(vuelo).build();
     }
+
+
 }
 
 

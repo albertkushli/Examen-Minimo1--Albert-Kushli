@@ -46,7 +46,7 @@ public class MaletaService {
 
 
         if (avionManager.getVuelo("1") != null) {
-            if (avionManager.getMaletasDeVueloDTO("1").isEmpty()) {
+            if (avionManager.getMaletasDeVuelo("1").isEmpty()) {
                 avionManager.facturarMaleta(new Maleta("Usuario1", "1"));
                 avionManager.facturarMaleta(new Maleta("Usuario2", "1"));
             }
@@ -77,12 +77,12 @@ public class MaletaService {
         }
     }
 
-    /*@GET
+    @GET
     @Path("/{vueloId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMaletas(@PathParam("vueloId") String vueloId) {
         try {
-            List<MaletaDTO> maletas = avionManager.getMaletasDeVueloDTO(vueloId);
+            List<Maleta> maletas = avionManager.getMaletasDeVuelo(vueloId);
             if (maletas == null || maletas.isEmpty()) {
                 return Response.status(404).entity("No hay maletas para este vuelo").build();
             }
@@ -94,16 +94,6 @@ public class MaletaService {
         }
     }
 
-     */
-
-    @GET
-    @Path("/laugage/{vueloId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getMaletas(@PathParam("vueloId") String vueloId) {
-        List<MaletaDTO> maletas = new ArrayList<>();
-        maletas.add(new MaletaDTO("1", "Usuario1", "1"));
-        return Response.ok(maletas).build();
-    }
 
 
 }
